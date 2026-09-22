@@ -1,0 +1,89 @@
+{
+  "$schema": "https://qatom.ai/brand-spec.schema.json",
+  "brand": "Qatom",
+  "version": "1.0",
+  "updated": "2026-09-22",
+  "legalEntity": "TODAQ Micro Inc., doing business as Qatom",
+  "endorsement": "Powered by TODAQ Labs Core IP",
+  "anchor": "qatom.ai",
+  "assetRepository": {
+    "url": "https://github.com/qatom/brand",
+    "status": "PLACEHOLDER — confirm repo URL and access before publishing",
+    "manifest": "assets.json",
+    "paths": { "logos": "/logo", "imagery": "/imagery", "spec": "/spec", "fonts": "/fonts" },
+    "note": "Single source of truth for humans and agents. Read brand-for-ai.md + brand-spec.json for rules, then fetch assets by path via assets.json."
+  },
+  "positioning": {
+    "hero": "Turn your APIs into payable agentic storefronts.",
+    "descriptor": "The all-in-one sovereign commerce platform for AI — a headless agentic market and payment rail.",
+    "tagline": "Integrity, built into every asset.",
+    "support": ["Not promised — proven.", "Not trusted — verified.", "Not dependent — portable.", "Making humans stronger."],
+    "masterBrandRule": "Qatom owns 100% of commercial surfaces; TODAQ Labs appears only as an endorsement."
+  },
+  "colour": {
+    "principle": "Neutral-first, cool only. No beige anywhere in a background (only warmth is in photography). Verdigris is the signature accent, not a field. Mist/oxide/pine are cool variance grounds.",
+    "tokens": {
+      "near-black":      { "hex": "#181818", "rgb": [24,24,24],   "role": "primary dark ground" },
+      "near-black-deep": { "hex": "#101010", "rgb": [16,16,16],   "role": "deepest panels, covers" },
+      "near-white":      { "hex": "#F4F8F6", "rgb": [244,248,246], "role": "primary light ground (cool, never beige)" },
+      "mist":            { "hex": "#EAF4EF", "rgb": [234,244,239], "role": "soft light variance panel" },
+      "verdigris":       { "hex": "#33BAA6", "rgb": [51,186,166],  "cmyk": [73,0,11,27], "pantone": "3268 C", "role": "signature accent + logo field" },
+      "verdigris-deep":  { "hex": "#278A7F", "rgb": [39,138,127],  "pantone": "3285 C", "role": "small accent text on light" },
+      "verdigris-bright":{ "hex": "#79D2C5", "rgb": [121,210,197], "role": "accent on dark only" },
+      "oxide":           { "hex": "#1C4B4B", "rgb": [28,75,75],    "pantone": "5473 C", "role": "deep variance ground" },
+      "pine":            { "hex": "#0C1A17", "rgb": [12,26,23],    "pantone": "5535 C", "role": "deepest teal ground" },
+      "ink":             { "hex": "#1C1C1C", "role": "body text on light" },
+      "ink-soft":        { "hex": "#6B6B6B", "role": "secondary text" }
+    },
+    "usage": {
+      "pageBackgrounds": ["near-black", "near-white", "mist", "oxide", "pine"],
+      "logoBackgrounds": ["verdigris (white mark) = PRIMARY for favicon/social", "near-black", "near-white", "oxide", "pine"],
+      "accentPerSurface": "one verdigris moment",
+      "never": ["beige in any background", "flood a surface with saturated teal/green", "same hue on itself", "white running text on verdigris (logo-strength only)"]
+    },
+    "inspiration": "Sampled from sky and water — fintech conscious of planet and people."
+  },
+  "typography": {
+    "display": { "family": "Source Serif 4", "weights": [400,500,600], "use": "headlines, statements", "tracking": "-0.015em to -0.02em" },
+    "text":    { "family": "Hanken Grotesk", "weights": [400,500,600,700], "use": "body, UI, money", "bodySizePx": [15,19], "lineHeight": 1.6 },
+    "mono":    { "family": "IBM Plex Mono", "weights": [400,500], "use": "eyebrows, labels, figures, identifiers", "eyebrow": "11px, UPPERCASE, 0.2em tracking" },
+    "wordmark":{ "family": "Archivo", "use": "wordmark artwork only (use the supplied vector, never retype)" },
+    "money": "three decimals, tabular figures, e.g. $0.001 / $4.500",
+    "fallbacks": { "serif": "Georgia", "sans": "system-ui, Segoe UI", "mono": "monospace" }
+  },
+  "logo": {
+    "marks": ["horizontal lockup (mark + wordmark)", "mark alone", "wordmark alone", "app icon", "favicon", "social avatar"],
+    "anatomy": {
+      "circle": "the fortress — deterministic console holding assets and wallets",
+      "travellingPiece": "the payout / split / agent twin (proxy) that transacts across the wider ecosystem",
+      "strike": "the transaction — value settling in one decisive pass"
+    },
+    "strikeAngleDeg": -40.66,
+    "colours": ["white", "verdigris (white-on-verdigris = signature)", "pine", "oxide"],
+    "construction": { "unit": "M = the mark's height (the mark is square, so M is also its width)", "basis": "measured from master vector: mark 245.9×245.3u, wordmark 701.9u wide, gap 50.1u", "wordmarkHeight": "0.85M", "gap": "0.20M", "clearSpace": "0.5M (defined rule)", "lockupRatio": "4.07:1", "note": "Ratios read off the supplied artwork; scale the master, never retype to hit these numbers." },
+    "minSize": { "lockup": "132px / 26mm", "mark": "24px (16px app tile) / 6mm", "wordmark": "11px cap / 3mm" },
+    "misuse": ["stretch/condense", "rotate", "shadow/glow/gradient/outline", "recolour off-palette", "two-tone", "low contrast", "skew/distort"]
+  },
+  "graphicDevice": {
+    "name": "the strike, extended",
+    "meaning": "the mark's strike (the transaction) pulled out as a line; arc echoes the travelling piece",
+    "rules": ["runs at -40.66° (the mark's angle)", "belongs to the mark, never a free diagonal", "one per surface", "verdigris on neutral/deep", "never boxed, over photography, or duplicated"]
+  },
+  "voice": {
+    "line": "Analytically bold. Refreshingly plain.",
+    "principle": "Compress the consequence, not the science. Verified, not trusted.",
+    "balance": "Digital ⟷ Organic — the apex of the digital and the organic; never at an extreme.",
+    "alwaysSay": ["Integrity is portable", "Verified, not trusted", "Strong bearer control", "You keep 100%", "Making humans stronger"],
+    "neverSay": ["trust us", "revolutionary / disrupting", "Web3 / token hype", "unlock the future", "buzzword stacks"]
+  },
+  "layout": {
+    "spacingBaseline": "generous; eyebrow→22–26px→heading→22px→lead→component 30px",
+    "surfaces": "frosted-glass cards, hairline borders, crisp finishes",
+    "buttons": "pill; verdigris fill (primary), near-black, or white ghost",
+    "grid": "single column, wide margins; the diagonal (strike) runs at -40.66°",
+    "motion": "the 260ms Strike — one decisive token; slides advance by fade + slight horizontal slide"
+  },
+  "nomenclature": ["Qatom Skill", "Qatom Twin", "Qatom Proxy", "Qatom Binders", "Qatom Managed", "Qatom Enterprise VPC"],
+  "spelling": "Always \"Qatom\" — never all-caps in body, never Qat0m.",
+  "forAgents": "When generating any Qatom asset (deck, social post, web element, icon): use a cool neutral ground, exactly one verdigris accent, the type trio (Source Serif 4 display / Hanken Grotesk text / IBM Plex Mono labels), the untouched mark, and the voice above. No beige, no code-speak in brand copy, no Web3 hype."
+}
