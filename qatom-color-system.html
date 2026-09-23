@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Qatom Color System</title>
+<meta name="description" content="Qatom brand guideline: making verdigris the brand. Color hierarchy, usage, and rationale.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pine:#0C1A17; --oxide:#1C4B4B; --verd:#33BAA6; --verd-deep:#278A7F; --verd-bright:#79D2C5;
+  --white:#FFFFFF; --paper:#FBFDFC; --mist:#F2F7F4; --coolgrey:#EEF3F1;
+  --ink:#1E2B27; --ink-soft:#5B6A63; --line:rgba(30,43,39,0.12); --line-d:rgba(242,247,244,0.16);
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Hanken Grotesk",system-ui,sans-serif;line-height:1.6;font-weight:400;}
+.wrap{max-width:1060px;margin:0 auto;padding:0 clamp(16px,5vw,56px);}
+section{padding:clamp(48px,7vw,88px) 0;}
+h1,h2,h3{font-family:"Source Serif 4",Georgia,serif;font-weight:400;letter-spacing:-0.015em;line-height:1.08;margin:0;}
+h1{font-size:clamp(2.3rem,5.4vw,3.9rem);}
+h2{font-size:clamp(1.7rem,3.4vw,2.5rem);margin-bottom:10px;}
+h3{font-size:1.2rem;font-weight:500;}
+p{margin:0 0 16px;max-width:64ch;}
+.eyebrow{font-family:"Hanken Grotesk";font-weight:500;font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--verd-deep);margin:0 0 14px;}
+.lead{font-size:clamp(1.05rem,1.7vw,1.28rem);color:var(--ink);max-width:60ch;}
+.mono{font-family:"IBM Plex Mono",monospace;}
+.dark{background:var(--pine);color:var(--mist);}
+.dark .eyebrow{color:var(--verd-bright);}
+.dark h1,.dark h2,.dark h3{color:var(--white);}
+.dark p{color:rgba(242,247,244,0.82);}
+.oxide{background:var(--oxide);color:var(--mist);}
+.oxide .eyebrow{color:var(--verd-bright);}
+.oxide h2{color:var(--white);}
+.rule{height:1px;background:var(--line);border:0;margin:0;}
+.hero{padding-top:clamp(56px,8vw,110px);}
+.hero .tag{display:inline-block;font-size:13px;letter-spacing:0.02em;color:var(--ink-soft);border:1px solid var(--line);border-radius:999px;padding:6px 14px;margin-bottom:26px;}
+.mk{display:block;}
+.mk svg{width:100%;height:100%;display:block;}
+.mk path{fill:currentColor;}
+
+/* tier cards */
+.tiers{display:grid;grid-template-columns:1.35fr 1fr;gap:20px;margin-top:36px;}
+.tier{border-radius:20px;overflow:hidden;border:1px solid var(--line);display:flex;flex-direction:column;background:var(--white);}
+.swatch{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;}
+.swatch .mk{width:34%;}
+.tier .body{padding:20px 22px 24px;}
+.tier .role{font-family:"Hanken Grotesk";font-weight:600;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--verd-deep);}
+.tier h3{margin:6px 0 6px;}
+.tier p{font-size:14.5px;color:var(--ink-soft);margin:0;}
+.sw-verd{background:var(--verd);color:var(--white);}
+.sw-black{background:var(--pine);color:var(--verd);}
+.sw-wonb{background:var(--pine);color:var(--white);}
+.sw-bonw{background:var(--white);color:var(--pine);border-bottom:1px solid var(--line);}
+.mini{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+.mini .swatch{aspect-ratio:1/1;}
+.mini .swatch .mk{width:42%;}
+.tier.hero-tier{grid-row:span 2;}
+.tier.hero-tier .swatch{aspect-ratio:auto;flex:1;min-height:280px;}
+.tier.hero-tier .swatch .mk{width:40%;}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:30px;}
+.card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:22px 24px;}
+.card h3{margin-bottom:8px;}
+.card p{font-size:14.5px;color:var(--ink-soft);margin:0;}
+.dark .card{background:rgba(255,255,255,0.04);border-color:var(--line-d);}
+.dark .card p{color:rgba(242,247,244,0.78);}
+.dark .card h3{color:var(--white);}
+
+ol.steps{counter-reset:s;list-style:none;padding:0;margin:28px 0 0;display:grid;gap:14px;}
+ol.steps li{position:relative;padding-left:52px;min-height:34px;}
+ol.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:-2px;width:34px;height:34px;border-radius:10px;background:var(--verd);color:#08221d;font-family:"Source Serif 4",serif;font-size:1.1rem;display:flex;align-items:center;justify-content:center;}
+ol.steps b{color:var(--ink);font-weight:600;}
+.dark ol.steps b{color:var(--white);}
+ol.steps li{color:var(--ink-soft);font-size:15px;}
+.dark ol.steps li{color:rgba(242,247,244,0.82);}
+
+.dd{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:28px;}
+.dd .col{border-radius:16px;padding:22px 24px;}
+.do{background:var(--mist);border:1px solid var(--line);}
+.dont{background:#fff;border:1px solid var(--line);}
+.dd h3{font-size:1rem;text-transform:uppercase;letter-spacing:0.08em;font-family:"Hanken Grotesk";font-weight:600;margin-bottom:12px;}
+.do h3{color:var(--verd-deep);}
+.dont h3{color:var(--ink-soft);}
+.dd ul{margin:0;padding:0;list-style:none;display:grid;gap:10px;}
+.dd li{font-size:14.5px;color:var(--ink);padding-left:24px;position:relative;line-height:1.45;}
+.do li::before{content:"\2713";position:absolute;left:0;color:var(--verd-deep);font-weight:700;}
+.dont li::before{content:"\00D7";position:absolute;left:0;color:var(--ink-soft);font-weight:700;font-size:1.1em;line-height:1;}
+
+table.spec{width:100%;border-collapse:collapse;margin-top:26px;font-size:14.5px;}
+table.spec th,table.spec td{text-align:left;padding:13px 14px;border-bottom:1px solid var(--line-d);}
+table.spec th{font-family:"Hanken Grotesk";font-weight:600;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--verd-bright);}
+table.spec td{color:rgba(242,247,244,0.9);}
+.chip{display:inline-block;width:20px;height:20px;border-radius:6px;vertical-align:-5px;margin-right:10px;border:1px solid rgba(255,255,255,0.14);}
+.spec .mono{color:var(--white);}
+.role-cell{color:rgba(242,247,244,0.66);}
+
+.usage{width:100%;border-collapse:collapse;margin-top:26px;font-size:14.5px;}
+.usage th,.usage td{text-align:left;padding:13px 14px;border-bottom:1px solid var(--line);}
+.usage th{font-family:"Hanken Grotesk";font-weight:600;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--verd-deep);}
+.usage td{color:var(--ink);}
+.usage td:first-child{font-weight:600;}
+.usage .tag2{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--verd-deep);}
+
+.callout{margin-top:26px;background:var(--mist);border:1px solid var(--line);border-left:3px solid var(--verd);border-radius:12px;padding:18px 22px;font-size:14.5px;color:var(--ink);}
+.callout b{color:var(--ink);}
+footer{padding:40px 0 60px;color:var(--ink-soft);font-size:13px;}
+footer .mono{color:var(--ink-soft);}
+@media(max-width:760px){
+  .tiers{grid-template-columns:1fr;}
+  .tier.hero-tier{grid-row:auto;}
+  .grid2,.dd{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <span class="tag">Brand guideline &middot; Color system</span>
+    <p class="eyebrow">Qatom color</p>
+    <h1>Make verdigris the brand,<br>not the accent.</h1>
+    <p class="lead" style="margin-top:22px;">Black and white is a utility, not a brand. Color equity is the cheapest memorability Qatom can buy, and it is built one way: by making verdigris the field that carries the mark, shown constantly, everywhere it counts.</p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- PRINCIPLE -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">The principle</p>
+    <h2>Own the field, not a detail on it.</h2>
+    <p>Brands own a color when the color is the surface, not a small mark sitting on a neutral. A viewer encodes one memory unit: the verdigris field with the orbital mark. That is the Tiffany box, the Cadbury wrapper, the UPS truck. It reads at twenty four pixels, in a crowded feed, before anyone reads the name. A colored logo on a white card does not do this. A field of color does.</p>
+    <div class="grid2">
+      <div class="card"><h3>Distinctiveness</h3><p>The orbital, slashed circle is already unusual. A distinctive shape plus one specific color, locked together, is what becomes ownable.</p></div>
+      <div class="card"><h3>Repetition</h3><p>Recognition is built by frequency. The color has to appear on the touchpoints that fire thousands of times, not the hero image shipped twice a year.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HIERARCHY -->
+<section class="dark">
+  <div class="wrap">
+    <p class="eyebrow">The hierarchy</p>
+    <h2>One hero. One signature. One utility.</h2>
+    <p>Every color pairing has a job. Lead with the field. Reach for the others only where the field cannot go.</p>
+    <div class="tiers">
+
+      <div class="tier hero-tier">
+        <div class="swatch sw-verd"><span class="mk"><svg viewBox="-6 -1 258 250" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M64.99,240.41L58.78,234.16L71.92,221.00L85.05,207.85L76.90,205.57C44.73,196.57 17.76,170.89 7.16,139.17C-3.87,106.12 1.71,70.34 22.16,43.10C38.37,21.49 62.61,6.82 89.52,2.32C99.16,0.70 116.54,1.15 126.67,3.28C164.92,11.30 195.34,39.61 205.96,77.08C206.99,80.75 207.97,83.92 208.12,84.13C208.27,84.33 214.19,78.72 221.27,71.64L234.16,58.78L240.84,65.42L247.52,72.06L160.22,159.36C112.20,207.38 72.53,246.67 72.06,246.67C71.59,246.67 68.41,243.85 64.99,240.41ZM139.08,235.09C139.04,234.35 138.76,230.12 138.46,225.69L137.92,217.63L144.56,216.66C177.78,211.81 205.21,187.93 214.45,155.83C215.57,151.94 216.76,146.22 217.09,143.14L217.69,137.53L226.55,138.04C231.43,138.32 235.74,138.84 236.13,139.19C237.16,140.13 234.59,155.22 232.02,163.42C226.97,179.48 218.68,193.05 206.29,205.50C197.36,214.48 189.50,220.22 178.74,225.62C167.76,231.14 157.98,233.87 141.04,236.18C139.79,236.35 139.14,235.99 139.08,235.09ZM191.77,100.03C191.40,99.78 190.63,96.58 190.05,92.92C180.79,34.34 118.43,2.80 65.83,30.09C31.35,47.98 13.47,88.16 22.97,126.38C28.65,149.25 45.68,170.64 66.64,181.24C76.04,185.99 89.40,190.00 95.85,190.00C97.18,190.00 98.75,190.54 99.34,191.20C100.25,192.22 107.52,185.31 146.43,146.44C171.74,121.16 192.14,100.28 191.77,100.03Z"/></svg></span></div>
+        <div class="body">
+          <div class="role">Hero &middot; use first, use most</div>
+          <h3>White on verdigris</h3>
+          <p>The field. This is the brand at full strength. Default for every profile avatar, app icon, favicon background, and any surface small enough to be recognized by color alone.</p>
+        </div>
+      </div>
+
+      <div class="tier">
+        <div class="swatch sw-black"><span class="mk"><svg viewBox="-6 -1 258 250" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M64.99,240.41L58.78,234.16L71.92,221.00L85.05,207.85L76.90,205.57C44.73,196.57 17.76,170.89 7.16,139.17C-3.87,106.12 1.71,70.34 22.16,43.10C38.37,21.49 62.61,6.82 89.52,2.32C99.16,0.70 116.54,1.15 126.67,3.28C164.92,11.30 195.34,39.61 205.96,77.08C206.99,80.75 207.97,83.92 208.12,84.13C208.27,84.33 214.19,78.72 221.27,71.64L234.16,58.78L240.84,65.42L247.52,72.06L160.22,159.36C112.20,207.38 72.53,246.67 72.06,246.67C71.59,246.67 68.41,243.85 64.99,240.41ZM139.08,235.09C139.04,234.35 138.76,230.12 138.46,225.69L137.92,217.63L144.56,216.66C177.78,211.81 205.21,187.93 214.45,155.83C215.57,151.94 216.76,146.22 217.09,143.14L217.69,137.53L226.55,138.04C231.43,138.32 235.74,138.84 236.13,139.19C237.16,140.13 234.59,155.22 232.02,163.42C226.97,179.48 218.68,193.05 206.29,205.50C197.36,214.48 189.50,220.22 178.74,225.62C167.76,231.14 157.98,233.87 141.04,236.18C139.79,236.35 139.14,235.99 139.08,235.09ZM191.77,100.03C191.40,99.78 190.63,96.58 190.05,92.92C180.79,34.34 118.43,2.80 65.83,30.09C31.35,47.98 13.47,88.16 22.97,126.38C28.65,149.25 45.68,170.64 66.64,181.24C76.04,185.99 89.40,190.00 95.85,190.00C97.18,190.00 98.75,190.54 99.34,191.20C100.25,192.22 107.52,185.31 146.43,146.44C171.74,121.16 192.14,100.28 191.77,100.03Z"/></svg></span></div>
+        <div class="body">
+          <div class="role">Signature &middot; dark contexts</div>
+          <h3>Verdigris on near-black</h3>
+          <p>The second voice. Premium and technical, matched to the website grounds. For banners, video, dark decks, and product UI.</p>
+        </div>
+      </div>
+
+      <div class="tier">
+        <div class="mini">
+          <div class="swatch sw-bonw"><span class="mk"><svg viewBox="-6 -1 258 250" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M64.99,240.41L58.78,234.16L71.92,221.00L85.05,207.85L76.90,205.57C44.73,196.57 17.76,170.89 7.16,139.17C-3.87,106.12 1.71,70.34 22.16,43.10C38.37,21.49 62.61,6.82 89.52,2.32C99.16,0.70 116.54,1.15 126.67,3.28C164.92,11.30 195.34,39.61 205.96,77.08C206.99,80.75 207.97,83.92 208.12,84.13C208.27,84.33 214.19,78.72 221.27,71.64L234.16,58.78L240.84,65.42L247.52,72.06L160.22,159.36C112.20,207.38 72.53,246.67 72.06,246.67C71.59,246.67 68.41,243.85 64.99,240.41ZM139.08,235.09C139.04,234.35 138.76,230.12 138.46,225.69L137.92,217.63L144.56,216.66C177.78,211.81 205.21,187.93 214.45,155.83C215.57,151.94 216.76,146.22 217.09,143.14L217.69,137.53L226.55,138.04C231.43,138.32 235.74,138.84 236.13,139.19C237.16,140.13 234.59,155.22 232.02,163.42C226.97,179.48 218.68,193.05 206.29,205.50C197.36,214.48 189.50,220.22 178.74,225.62C167.76,231.14 157.98,233.87 141.04,236.18C139.79,236.35 139.14,235.99 139.08,235.09ZM191.77,100.03C191.40,99.78 190.63,96.58 190.05,92.92C180.79,34.34 118.43,2.80 65.83,30.09C31.35,47.98 13.47,88.16 22.97,126.38C28.65,149.25 45.68,170.64 66.64,181.24C76.04,185.99 89.40,190.00 95.85,190.00C97.18,190.00 98.75,190.54 99.34,191.20C100.25,192.22 107.52,185.31 146.43,146.44C171.74,121.16 192.14,100.28 191.77,100.03Z"/></svg></span></div>
+          <div class="swatch sw-wonb"><span class="mk"><svg viewBox="-6 -1 258 250" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M64.99,240.41L58.78,234.16L71.92,221.00L85.05,207.85L76.90,205.57C44.73,196.57 17.76,170.89 7.16,139.17C-3.87,106.12 1.71,70.34 22.16,43.10C38.37,21.49 62.61,6.82 89.52,2.32C99.16,0.70 116.54,1.15 126.67,3.28C164.92,11.30 195.34,39.61 205.96,77.08C206.99,80.75 207.97,83.92 208.12,84.13C208.27,84.33 214.19,78.72 221.27,71.64L234.16,58.78L240.84,65.42L247.52,72.06L160.22,159.36C112.20,207.38 72.53,246.67 72.06,246.67C71.59,246.67 68.41,243.85 64.99,240.41ZM139.08,235.09C139.04,234.35 138.76,230.12 138.46,225.69L137.92,217.63L144.56,216.66C177.78,211.81 205.21,187.93 214.45,155.83C215.57,151.94 216.76,146.22 217.09,143.14L217.69,137.53L226.55,138.04C231.43,138.32 235.74,138.84 236.13,139.19C237.16,140.13 234.59,155.22 232.02,163.42C226.97,179.48 218.68,193.05 206.29,205.50C197.36,214.48 189.50,220.22 178.74,225.62C167.76,231.14 157.98,233.87 141.04,236.18C139.79,236.35 139.14,235.99 139.08,235.09ZM191.77,100.03C191.40,99.78 190.63,96.58 190.05,92.92C180.79,34.34 118.43,2.80 65.83,30.09C31.35,47.98 13.47,88.16 22.97,126.38C28.65,149.25 45.68,170.64 66.64,181.24C76.04,185.99 89.40,190.00 95.85,190.00C97.18,190.00 98.75,190.54 99.34,191.20C100.25,192.22 107.52,185.31 146.43,146.44C171.74,121.16 192.14,100.28 191.77,100.03Z"/></svg></span></div>
+        </div>
+        <div class="body">
+          <div class="role">Utility &middot; function only</div>
+          <h3>Black and white</h3>
+          <p>Legibility and reproduction. Print, tiny favicons, embossing, one color partner lockups, anywhere color cannot render true. Never the default face.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- OPERATE -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">How to make it integral</p>
+    <h2>Five moves, in order of impact.</h2>
+    <ol class="steps">
+      <li><b>Lead with the field on every avatar.</b> Set LinkedIn, Instagram, YouTube, and Slack to white on verdigris now. Four identical verdigris discs across four platforms is the fastest color memory available.</li>
+      <li><b>Lock one hex.</b> Use a single verdigris everywhere, with no drift. Inconsistent teals are why most companies never own their color.</li>
+      <li><b>Put color on the highest frequency touchpoints.</b> Avatar, favicon, primary button, link color, email signature chip, slide master accent, loading state. That is where equity compounds.</li>
+      <li><b>Name it and give it a reason.</b> Verdigris is the patina copper and bronze earn as they oxidize, proof that something is real and has held up over time. It ties straight to integrity built into every asset.</li>
+      <li><b>Keep everything else quiet.</b> The moment verdigris becomes one of five equal colors it stops being ownable. Oxide and pine are supporting grounds, never co-stars.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- DO / DONT -->
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="dd">
+      <div class="col do">
+        <h3>Do</h3>
+        <ul>
+          <li>Default to the verdigris field for avatars and app icons.</li>
+          <li>Use the exact locked hex, every time.</li>
+          <li>Let verdigris be the one loud thing in an otherwise neutral, cool system.</li>
+          <li>Pair the color with the orbital mark so shape and color are learned together.</li>
+        </ul>
+      </div>
+      <div class="col dont">
+        <h3>Don't</h3>
+        <ul>
+          <li>Lead with the black and white duo out of habit. It builds no color equity.</li>
+          <li>Set body text in white on verdigris. It is logo strength contrast, not text strength.</li>
+          <li>Drift the teal between assets, or add rival accent colors.</li>
+          <li>Reserve the color for rare hero moments while everyday touchpoints stay mono.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USAGE BY SURFACE -->
+<section style="padding-top:0;">
+  <div class="wrap">
+    <p class="eyebrow">Usage by surface</p>
+    <h2>Which pairing goes where.</h2>
+    <table class="usage">
+      <thead><tr><th>Surface</th><th>Use</th><th>Scheme</th></tr></thead>
+      <tbody>
+        <tr><td>Social avatars (LinkedIn, Instagram, YouTube, Slack)</td><td>Icon on the field</td><td class="tag2">white on verdigris</td></tr>
+        <tr><td>Favicon and app icon</td><td>Icon on the field</td><td class="tag2">white on verdigris</td></tr>
+        <tr><td>Banners, video, dark decks, product UI</td><td>Lockup</td><td class="tag2">verdigris on near-black</td></tr>
+        <tr><td>Website light sections</td><td>Lockup and mark</td><td class="tag2">ink on white, verdigris as fill</td></tr>
+        <tr><td>Print, embossing, one color, partner lockups</td><td>Mark or lockup</td><td class="tag2">black / white utility</td></tr>
+      </tbody>
+    </table>
+    <div class="callout"><b>Contrast note.</b> White on verdigris is a logo strength pairing, not a text strength one. Use it for the mark and the field. For running copy on verdigris, switch to near-black ink, or set the copy on pine or white instead.</div>
+  </div>
+</section>
+
+<!-- SPEC -->
+<section class="oxide">
+  <div class="wrap">
+    <p class="eyebrow">Color spec</p>
+    <h2>The locked values.</h2>
+    <table class="spec">
+      <thead><tr><th>Token</th><th>Hex</th><th>Role</th></tr></thead>
+      <tbody>
+        <tr><td><span class="chip" style="background:#33BAA6"></span>Verdigris</td><td class="mono">#33BAA6</td><td class="role-cell">The signature. The field, the fill, the one loud color.</td></tr>
+        <tr><td><span class="chip" style="background:#0C1A17"></span>Pine (near-black)</td><td class="mono">#0C1A17</td><td class="role-cell">Darkest ground. The brand black. Cool, never pure #000.</td></tr>
+        <tr><td><span class="chip" style="background:#1C4B4B"></span>Oxide</td><td class="mono">#1C4B4B</td><td class="role-cell">Anchor ground. Supporting, not a co-star.</td></tr>
+        <tr><td><span class="chip" style="background:#79D2C5"></span>Verdigris bright</td><td class="mono">#79D2C5</td><td class="role-cell">Accent on dark only. Eyebrows and highlights, never a field with white.</td></tr>
+        <tr><td><span class="chip" style="background:#FFFFFF"></span>White</td><td class="mono">#FFFFFF</td><td class="role-cell">The mark on the field. Crisp light neutral.</td></tr>
+        <tr><td><span class="chip" style="background:#F2F7F4"></span>Mist</td><td class="mono">#F2F7F4</td><td class="role-cell">Lightest cool tint. Soft panels. Never beige.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- NAME -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">The name</p>
+    <h2>Why verdigris.</h2>
+    <p>Verdigris is the green blue patina that copper and bronze earn as they oxidize. It is the color of a surface that has been exposed, tested, and proven over time. That is the argument Qatom makes about every asset it settles: real, verifiable, and built to hold up. A color with a reason gets used consistently, because the team believes in it. That belief is what keeps the hex from drifting, and consistency is what turns a color into a brand.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Qatom color system &middot; part of the Qatom brand guideline. Locked signature <span class="mono">#33BAA6</span>. Cool only, no warm neutrals. Product name always written Qatom.
+  </div>
+</footer>
+
+</body>
+</html>
